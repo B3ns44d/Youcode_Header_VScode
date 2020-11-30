@@ -23,8 +23,8 @@ const mainTemplate = `
 *                                                        +#++:   +#+           *
 *    By: $AUTHOR________________________________         +#+   +#+             *
 *                                                      #+#    #+#    #+#       *
-*    Created: $CREATEDAT_________ by $CREATEDBY_      ###     ########.ma      *
-*    Updated: $UPDATEDAT_________ by $UPDATEDBY_                               *
+*    Created: $CREATED_DATA_________ by $CREATED_BY_  ###     ########.ma      *
+*    Updated: $UPDATED_DATA_________ by $UPDATED_BY_                           *
 *                                                                              *
 ********************************************************************************`.substring(1);
 
