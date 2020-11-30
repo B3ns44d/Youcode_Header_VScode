@@ -1,0 +1,80 @@
+{
+	"name": "youcode-header",
+	"displayName": "Youcode Header",
+	"description": "Youcode Files Header for VScode by B3ns44d",
+	"version": "0.0.1",
+	"publisher": "B3ns44d",
+	"icon": "youcode.png",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/B3ns44d/Youcode_Header_VScode"
+	},
+	"bugs": {
+		"url": "https://github.com/B3ns44d/Youcode_Header_VScode/issues"
+	},
+	"license": "MIT",
+	"engines": {
+		"vscode": "^1.51.0"
+	},
+	"categories": [
+		"Other"
+	],
+	"activationEvents": [
+		"*"
+	],
+	"main": "./out/src/extension.js",
+	"contributes": {
+		"configuration": {
+			"properties": {
+			  "Youcode.username": {
+				"type": "string",
+				"description": "Username to use for YouCode headers"
+			  },
+			  "Youcode.email": {
+				"type": "string",
+				"description": "Email address to use for YouCode headers"
+			  }
+			}
+		  },
+		"commands": [
+			{
+				"command": "youcodeheader.insertHeader",
+				"title": "Insert YouCode Header",
+				"when": "editorTextFocus"
+			}
+		],
+		"keybindings":[
+			{
+				"command": "youcodeheader.insertHeader",
+				"key": "ctrl+alt+y",
+				"mac": "cmd+alt+y",
+				"when": "editorTextFocus"
+			}
+		]
+	},
+	"scripts": {
+		"vscode:prepublish": "tsc -p ./",
+		"compile": "tsc -watch -p ./",
+		"watch": "tsc -watch -p ./",
+		"pretest": "npm run compile && npm run lint",
+		"lint": "eslint src --ext ts",
+		"test": "node ./out/test/runTest.js"
+	},
+	"devDependencies": {
+		"@types/vscode": "^1.51.0",
+		"@types/glob": "^7.1.3",
+		"@types/mocha": "^8.0.0",
+		"@types/node": "^12.11.7",
+		"eslint": "^7.9.0",
+		"@typescript-eslint/eslint-plugin": "^4.1.1",
+		"@typescript-eslint/parser": "^4.1.1",
+		"glob": "^7.1.6",
+		"mocha": "^8.1.3",
+		"typescript": "^4.0.2",
+		"vscode-test": "^1.4.0"
+	},
+	"dependencies": {
+		"delimiters": "^1.0.1",
+		"moment": "^2.29.1"
+	}
+}
