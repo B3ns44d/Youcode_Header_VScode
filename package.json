@@ -1,8 +1,18 @@
 {
 	"name": "youcode-header",
 	"displayName": "Youcode Header",
-	"description": "Youcode Header for VScode: www.youcode.ma",
+	"description": "Youcode Files Header for VScode by B3ns44d",
 	"version": "0.0.1",
+	"publisher": "B3ns44d",
+	"icon": "youcode.png",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/B3ns44d/Youcode_Header_VScode"
+	},
+	"bugs": {
+		"url": "https://github.com/B3ns44d/Youcode_Header_VScode/issues"
+	},
+	"license": "MIT",
 	"engines": {
 		"vscode": "^1.51.0"
 	},
@@ -10,20 +20,41 @@
 		"Other"
 	],
 	"activationEvents": [
-		"onCommand:youcode-header.helloWorld"
+		"*"
 	],
-	"main": "./out/extension.js",
+	"main": "./out/src/extension.js",
 	"contributes": {
+		"configuration": {
+			"properties": {
+			  "Youcode.username": {
+				"type": "string",
+				"description": "Username to use for YouCode headers"
+			  },
+			  "Youcode.email": {
+				"type": "string",
+				"description": "Email address to use for YouCode headers"
+			  }
+			}
+		  },
 		"commands": [
 			{
-				"command": "youcode-header.helloWorld",
-				"title": "Hello World"
+				"command": "youcodeheader.insertHeader",
+				"title": "Insert YouCode Header",
+				"when": "editorTextFocus"
+			}
+		],
+		"keybindings":[
+			{
+				"command": "youcodeheader.insertHeader",
+				"key": "ctrl+alt+y",
+				"mac": "cmd+alt+y",
+				"when": "editorTextFocus"
 			}
 		]
 	},
 	"scripts": {
-		"vscode:prepublish": "npm run compile",
-		"compile": "tsc -p ./",
+		"vscode:prepublish": "tsc -p ./",
+		"compile": "tsc -watch -p ./",
 		"watch": "tsc -watch -p ./",
 		"pretest": "npm run compile && npm run lint",
 		"lint": "eslint src --ext ts",
@@ -41,5 +72,9 @@
 		"mocha": "^8.1.3",
 		"typescript": "^4.0.2",
 		"vscode-test": "^1.4.0"
+	},
+	"dependencies": {
+		"delimiters": "^1.0.1",
+		"moment": "^2.29.1"
 	}
 }
