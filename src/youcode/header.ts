@@ -1,5 +1,6 @@
 // node.js
 import moment = require("moment");
+import { languages } from "vscode";
 import { youcodeLanguage } from "./lang/youcodeLang";
 // Or in ES6 syntax:
 // import moment from 'moment';
@@ -13,7 +14,19 @@ export type YoucodeHeaderInfo = {
   updatedAt: moment.Moment;
 };
 
-const mainTemplate = `Youcode logo`.substring(1);
+const mainTemplate = `
+********************************************************************************
+*                                                                              *
+*                                                          :::   :::  :::::::: *
+*                                                         :+:   :+: :+:    :+: *
+*    $FILENAME__________________________________         +:+ +:+  +:+          *
+*                                                        +#++:   +#+           *
+*    By: $AUTHOR________________________________         +#+   +#+             *
+*                                                      #+#    #+#    #+#       *
+*    Created: $CREATEDAT_________ by $CREATEDBY_      ###     ########.ma      *
+*    Updated: $UPDATEDAT_________ by $UPDATEDBY_                               *
+*                                                                              *
+********************************************************************************`.substring(1);
 
 const template = (languageId: string) => {
   const [left, right] = youcodeLanguage[languageId];
@@ -55,3 +68,41 @@ const regexpMatch = (name: string) => new RegExp(`^((?:.*\\\n)*.*)(\\\$${name}_*
 
 
 
+// getting the value from the given header filed name
+
+const gettingFiledValue = (header: string, name: string) => { 
+    const [_, offset, filed] = mainTemplate.match(regexpMatch(name));
+    return header.substr(offset.length, filed.length);
+};
+// setting the filed values in header
+
+const settingFiledValue = (header: string, name: string, value: string) => {
+    const [_, offset, field] = mainTemplate.match(regexpMatch(name));
+
+    return header.substr(0, offset.length)
+    .concat(fitValuePad(value, field.length))
+    .concat(header.substr(offset.length + field.length));
+};
+
+// SETUP THE HEADER INFO FROM THE HEADER 
+
+export const gettingHeaderInfo = (header: string): YoucodeHeaderInfo => ({
+    filename: gettingFiledValue(header, 'FILENAME'),
+    author: gettingFiledValue(header, 'AUTHOR'),
+    createdBy: gettingFiledValue(header, 'CREATED_BY'),
+    createdAt: dataParse(gettingFiledValue(header, 'CREATED_DATA')),
+    updatedBy: gettingFiledValue(header, 'UPDATED_BY'),
+    updatedAt: dataParse(gettingFiledValue(header, 'UPDATED_DATA'))
+  });
+
+//   CONFIG LANGUAGE TEMP With THE HEADER INFO
+
+export const configHeader = (languageId: string, info: YoucodeHeaderInfo) => [
+    { name: 'FILENAME', value: info.filename },
+    { name: 'AUTHOR', value: info.author },
+    { name: 'CREATED_DATA', value: dataFormat(info.createdAt) },
+    { name: 'CREATED_BY', value: info.createdBy },
+    { name: 'UPDATED_DATA', value: dataFormat(info.updatedAt) },
+    { name: 'UPDATED_BY', value: info.updatedBy }].reduce((header, field) =>
+    settingFiledValue(header, field.name, field.value),
+    template(languageId));
