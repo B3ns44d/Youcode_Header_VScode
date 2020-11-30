@@ -24,12 +24,12 @@ import { youcodeLanguage } from "./youcode/lang/youcodeLang";
 const getUserCurrent = () =>
   vscode.workspace.getConfiguration().get("Youcode.username") ||
   process.env["USER"] ||
-  "Abdessamad";
+  "b3ns44d";
 
 // get current user email from vscode
 const getUserCurrentEmail = () =>
   vscode.workspace.getConfiguration().get("Youcode.email") ||
-  `${getUserCurrent()}@student.youcode.ma`;
+  `${getUserCurrent()}@email.com`;
 
 // Update HeaderInfo with the latest update author and date, and update the file name
 
@@ -82,7 +82,7 @@ const insertYoucodeHeader = () => {
     });
   } else {
     vscode.window.showInformationMessage(
-      `I don't thin we use this language ${document.languageId} in our school`
+      `I don't think we use this language "${document.languageId}" in YouCode :)`
     );
   }
 };
