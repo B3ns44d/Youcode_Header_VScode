@@ -1,65 +1,45 @@
-# youcode-header README
+<h1 align="center">💻 YouCode Header 💥</h1>
 
-This is the README for your extension "youcode-header". After writing up a brief description, we recommend including the following sections.
+<p align="center"><b>YouCode Header</b> automatically (or via command/shortcut <kbd>Ctrl+Alt+Y</kbd>) inserts (and updates) file header text (author comment).<br/>
+<b>YouCode Header</b> offers easy configuration and powerful customization to fit any needs!</p>
 
-## Features
+<p align="center">
+<img src="https://img.shields.io/badge/TypeScript-007ACC?style=for-the-badge&logo=typescript&logoColor=white" />
+<a href="https://twitter.com/B3ns44d" target="_blank">
+<img href="https://twitter.com/B3ns44d" src="https://img.shields.io/badge/Twitter-1DA1F2?style=for-the-badge&logo=twitter&logoColor=white"/></a>
+<a href="https://www.linkedin.com/in/b3ns44d/" target="_blank">
+<img src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white" /></a>
+</p>
 
-Describe specific features of your extension including screenshots of your extension in action. Image paths are relative to this README file.
+<p align="center"><img src="https://c.top4top.io/p_1795btvlu1.png" alt="short demo of YouCode Header in action" width="800"></p>
 
-For example if there is an image subfolder under your extension project workspace:
+## Use Case Examples (extending default settings)
 
-\!\[feature X\]\(images/feature-x.png\)
-
-> Tip: Many popular extensions utilize animations. This is an excellent way to show off your extension! We recommend short, focused animations that are easy to follow.
-
-## Requirements
-
-If you have any requirements or dependencies, add a section describing those and how to install and configure them.
+ Insert a simpler header in plain text files (via command/shortcut)
+ - **Linux** / **Windows** : `Ctrl` + `Alt` + `Y`.
+ - **macOS** : `⌘` + `⌥` + `Y`.
+OR 
+ - **Linux** / **Windows** : `Ctrl` + `Alt` + `P` *>Insert YouCode Header*
+ - **macOS** : `⌘` + `⌥` + `P` *>Insert YouCode Header*
+<p align="center"><img src="https://a.top4top.io/p_1795b19fu1.png" alt="short demo of YouCode Header in action" width="800"></p>
 
 ## Extension Settings
 
-Include if your extension adds any VS Code settings through the `contributes.configuration` extension point.
+See *# Configuration* tab⤴️ and better check in *Settings*➡️*Extensions*➡️**YouCode Header** for detailed explanation.
 
-For example:
+> Default values for  **username**  and  **email**  are imported from environment variables.
+> To override these values, specify these properties in  _User Settings_  :
 
-This extension contributes the following settings:
-
-* `myExtension.enable`: enable/disable this extension
-* `myExtension.thing`: set to `blah` to do something
+```ts
+{  
+	"Youcode.username": string, // Enter your username here 
+	"Youcode.email": string  // Enter your email here
+}
+```
 
 ## Known Issues
 
-Calling out known issues can help limit users opening duplicate issues against your extension.
-
-## Release Notes
-
-Users appreciate release notes as you update your extension.
-
-### 1.0.0
-
-Initial release of ...
-
-### 1.0.1
-
-Fixed issue #.
-
-### 1.1.0
-
-Added features X, Y, and Z.
-
------------------------------------------------------------------------------------------------------------
-
-## Working with Markdown
-
-**Note:** You can author your README using Visual Studio Code.  Here are some useful editor keyboard shortcuts:
-
-* Split the editor (`Cmd+\` on macOS or `Ctrl+\` on Windows and Linux)
-* Toggle preview (`Shift+CMD+V` on macOS or `Shift+Ctrl+V` on Windows and Linux)
-* Press `Ctrl+Space` (Windows, Linux) or `Cmd+Space` (macOS) to see a list of Markdown snippets
-
-### For more information
-
-* [Visual Studio Code's Markdown Support](http://code.visualstudio.com/docs/languages/markdown)
-* [Markdown Syntax Reference](https://help.github.com/articles/markdown-basics/)
-
-**Enjoy!**
+🐞 To help me develop these add-ons, inform me if you find any bug or want any new feature by opening a [Github issue](https://github.com/B3ns44d/Youcode_Header_VScode/issues "https://github.com/B3ns44d/Youcode_Header_VScode/issues").
+# License
+MIT
+Build by Abdessamad Bensaad (B3ns44d)
