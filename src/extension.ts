@@ -136,7 +136,7 @@ const startUpdateOnSaveWatcher = (subscriptions: vscode.Disposable[]) =>
                   )
                 ),
               ]
-            : [] // in case theirs no text to apply
+            : [] 
         )
       );
     },
