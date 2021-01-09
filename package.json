@@ -26,16 +26,16 @@
 	"contributes": {
 		"configuration": {
 			"properties": {
-			  "Youcode.username": {
-				"type": "string",
-				"description": "Username to use for YouCode headers"
-			  },
-			  "Youcode.email": {
-				"type": "string",
-				"description": "Email address to use for YouCode headers"
-			  }
+				"Youcode.username": {
+					"type": "string",
+					"description": "Username to use for YouCode headers"
+				},
+				"Youcode.email": {
+					"type": "string",
+					"description": "Email address to use for YouCode headers"
+				}
 			}
-		  },
+		},
 		"commands": [
 			{
 				"command": "youcodeheader.insertHeader",
@@ -43,7 +43,7 @@
 				"when": "editorTextFocus"
 			}
 		],
-		"keybindings":[
+		"keybindings": [
 			{
 				"command": "youcodeheader.insertHeader",
 				"key": "ctrl+alt+y",
